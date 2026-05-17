@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABYS Goal Request",
+  "type": "object",
+  "required": ["goal", "sources", "constraints", "output"],
+  "properties": {
+    "goal": {"type": "object"},
+    "sources": {"type": "array", "items": {"type": "string"}},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "output": {"type": "string"}
+  }
+}

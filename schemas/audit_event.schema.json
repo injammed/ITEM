@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ABYS Audit Event",
+  "type": "object",
+  "required": ["event_id", "timestamp", "workflow_id", "stage", "payload_hash"],
+  "properties": {
+    "event_id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "workflow_id": {"type": "string"},
+    "stage": {"type": "string"},
+    "payload_hash": {"type": "string"},
+    "metadata": {"type": "object"}
+  }
+}
