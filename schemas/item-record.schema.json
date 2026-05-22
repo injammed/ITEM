@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/injammed/ITEM/schemas/item-record.schema.json",
+  "title": "ITEM Canonical Artifact Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "item_id",
+    "canonical_name",
+    "status",
+    "object_type",
+    "function",
+    "artifact_layers",
+    "symbolic_claims",
+    "implementation_surface",
+    "validation_requirements",
+    "provenance",
+    "review_notes"
+  ],
+  "properties": {
+    "item_id": { "type": "string", "pattern": "^ITEM-[0-9A-Z_-]+$" },
+    "canonical_name": { "type": "string", "minLength": 1 },
+    "status": { "type": "string", "enum": ["candidate", "canon", "deprecated"] },
+    "object_type": {
+      "type": "string",
+      "enum": ["physical_object", "digital_object", "image_spec", "narrative_asset", "economic_unit", "schema", "hybrid_artifact"]
+    },
+    "function": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "artifact_layers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["description"],
+        "properties": {
+          "description": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "symbolic_claims": { "type": "array", "items": { "type": "string" } },
+    "implementation_surface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["renderable", "fabricable", "simulatable", "sellable"],
+      "properties": {
+        "renderable": { "type": "boolean" },
+        "fabricable": { "type": "boolean" },
+        "simulatable": { "type": "boolean" },
+        "sellable": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "validation_requirements": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "created_by", "created_at"],
+      "properties": {
+        "source": { "type": "string" },
+        "created_by": { "type": "string" },
+        "created_at": { "type": "string" },
+        "related_records": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "review_notes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classification", "reason", "next_action"],
+      "properties": {
+        "classification": { "type": "string", "enum": ["preserve", "refine", "redirect", "deprecate", "delete"] },
+        "reason": { "type": "string", "minLength": 1 },
+        "next_action": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
