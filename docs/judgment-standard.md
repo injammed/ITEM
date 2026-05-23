@@ -1,19 +1,25 @@
-# ITEM Judgment Standard v0
+# ITEM Judgment Standard v1
+
+## Authority
+
+This document is the single authoritative rubric for ITEM artifact judgment.
+
+`docs/canon-selection.md` is retained only as a deprecated historical guide. Any conflict resolves in favor of this file.
 
 ## Purpose
 
-This document defines how ITEM artifacts are judged before they are routed into AETIMM, refinement, archive, or SLATRA containment.
+This standard defines how ITEM artifacts are scored before routing into AETIMM candidate status, refinement, archive, or containment.
 
-The standard exists to prevent the system from becoming pure aesthetic preference, popularity sorting, or passive slop consumption.
+The standard exists to prevent the repository from becoming aesthetic preference, popularity sorting, passive accumulation, or unbounded doctrine growth.
 
 ## Core Rule
 
-No artifact becomes canon by upload alone.
+No artifact becomes canon by upload, intensity, rhetoric, or author preference.
 
 Every artifact must pass through structured judgment.
 
 ```txt
-Artifact → Judgment → Route → Repository / Gallery / Refinement / Containment
+Artifact -> Schema check -> Judgment -> Route -> Record update
 ```
 
 ## Score Scale
@@ -25,7 +31,7 @@ All dimensions are scored from `0` to `10`.
 | 0 | Absent or actively harmful |
 | 1-2 | Extremely weak signal |
 | 3-4 | Partial signal, mostly undeveloped |
-| 5-6 | Functional, promising, but not exceptional |
+| 5-6 | Functional and promising but not exceptional |
 | 7-8 | Strong, coherent, worth preserving or refining |
 | 9 | Rare, high-integrity artifact |
 | 10 | Canon-defining exemplar |
@@ -36,162 +42,153 @@ All dimensions are scored from `0` to `10`.
 
 Measures whether the artifact holds together as a complete object.
 
-High coherence means:
-
-- the concept has internal logic
-- the parts reinforce each other
-- the artifact can be explained without collapsing into haze
-- the user can tell what the thing is, what it does, and why it matters
-
-Low coherence means:
-
-- the artifact is mostly vibes
-- terms do not connect operationally
-- the artifact contradicts itself without productive tension
-- the viewer cannot tell whether it is product, fiction, doctrine, image, or joke
+High coherence means the concept has internal logic, its parts reinforce each other, and the artifact can be explained without collapsing into haze.
 
 ### 2. Originality
 
 Measures whether the artifact creates new symbolic, technical, visual, or product territory.
 
-High originality means:
-
-- it is not merely derivative of common crypto, AI, luxury, or sci-fi tropes
-- it introduces a useful new distinction, mechanism, or form
-- it could become recognizable as ITEM-native
-
-Low originality means:
-
-- it only recombines familiar motifs
-- it depends on borrowed prestige
-- it feels like a prompt artifact rather than an authored artifact
+High originality means the artifact introduces a useful distinction, mechanism, or form and could become recognizable as ITEM-native.
 
 ### 3. Modal Depth
 
-Measures how many layers of reality the artifact can operate across.
+Measures how many operational layers the artifact can cross.
 
-High modal depth means it can exist across several modes:
-
-- product
-- code
-- image
-- ritual
-- market
-- game
-- archive
-- fiction
-- governance
-
-Low modal depth means:
-
-- it works only as a single image, phrase, or mood
-- it cannot be translated into behavior, software, or institution
-- it has no next action
+Accepted modes include physical object, digital object, image, ritual, market, game, archive, fiction, governance, schema, and protocol reference.
 
 ### 4. Cultural Weight
 
 Measures whether the artifact feels worth preserving.
 
-High cultural weight means:
-
-- it has memorability
-- it has symbolic gravity
-- it can survive outside the original conversation
-- it could plausibly matter to a community, collector, reader, builder, or curator
-
-Low cultural weight means:
-
-- it is forgettable
-- it depends on temporary novelty
-- it feels inflated but empty
-- it cannot attract serious care
+High cultural weight means memorability, symbolic gravity, and the ability to survive outside the originating conversation.
 
 ### 5. Craft Integrity
 
 Measures execution quality.
 
-High craft integrity means:
+High craft integrity means deliberate language, visual structure, code, object specification, constraint, and editability.
 
-- the language, visual structure, code, or object specification is deliberate
-- the artifact can be improved without changing its soul
-- it shows constraint and selection
-- it avoids accidental excess
+### 6. Provenance Strength
 
-Low craft integrity means:
+Measures whether the artifact has traceable origin, lineage, permissions, and review history.
 
-- it is noisy
-- it is overdecorated
-- it lacks editing
-- it substitutes intensity for precision
+High provenance means future reviewers can reconstruct source, authorship, transformation path, related records, and permission state.
 
-### 6. Slop Risk
+### 7. Implementation Surface
 
-Measures the likelihood that the artifact degrades the system if rewarded.
+Measures whether the artifact can be rendered, manufactured, simulated, validated, displayed, or integrated.
 
-High slop risk means:
+High implementation surface means the artifact has enough structure to become code, interface, object spec, image spec, schema, or fixture data.
 
-- it rewards passive consumption
-- it is sensational without structure
-- it imitates depth without substance
-- it makes SLATRA more compelling than AETIMM
-- it would train contributors to produce more noise
+### 8. Slop Risk
 
-Low slop risk means:
+Measures the likelihood that rewarding the artifact degrades the repository.
 
-- it rewards refinement
-- it invites careful judgment
-- it can be preserved without corrupting the canon
-- it strengthens the route engine
+High slop risk means the artifact encourages low-signal generation, inflated language, repetition, aesthetic excess without structure, or unreviewed volume.
 
-## Routing Thresholds v0
+## Mechanical Scoring
 
-The positive score is:
+Positive score:
 
 ```txt
-coherence + originality + modalDepth + culturalWeight + craftIntegrity
+positiveScore = coherence + originality + modalDepth + culturalWeight + craftIntegrity + provenanceStrength + implementationSurface
 ```
 
-Maximum positive score: `50`.
+Maximum positive score: `70`.
 
-| Condition | Route |
-|---|---|
-| slopRisk >= 8 | SLATRA_CONTAINMENT |
-| positiveScore >= 40 and slopRisk <= 3 | AETIMM_CANDIDATE |
-| positiveScore >= 25 | REFINEMENT_REQUIRED |
-| otherwise | ARCHIVE_ONLY |
+Penalty score:
+
+```txt
+penaltyScore = slopRisk
+```
+
+Final score:
+
+```txt
+finalScore = positiveScore - penaltyScore
+```
+
+## Routing Thresholds
+
+| Condition | Route | Status |
+|---|---|---|
+| slopRisk >= 8 | SLATRA_CONTAINMENT | archive/slatra-contained |
+| positiveScore >= 58 and slopRisk <= 3 | CANON_READY | canon review |
+| positiveScore >= 48 and slopRisk <= 4 | AETIMM_CANDIDATE | candidate |
+| positiveScore >= 32 | REFINEMENT_REQUIRED | refinement |
+| otherwise | ARCHIVE_ONLY | archive |
+
+## Anti-Inflation Rule
+
+Grand language does not increase score.
+
+A document earns score only through:
+
+- symbolic coherence
+- provenance strength
+- artifact specificity
+- implementation surface
+- aesthetic compression
+- resistance to low-signal accumulation
+
+## Veto Rules
+
+A single veto can block canonization even when scores are high.
+
+Veto conditions:
+
+- unclear rights or permissions
+- financial promise without mechanism or legal review
+- product infrastructure placed in ITEM instead of ABYS
+- protocol runtime placed in ITEM instead of SYNTEL
+- contradictory schema fields
+- no reproducible artifact form
+- uncontrolled vocabulary growth without routing
 
 ## Route Meanings
 
+### CANON_READY
+
+The artifact is eligible for final human or council approval as canon.
+
 ### AETIMM_CANDIDATE
 
-The artifact has enough integrity to be treated as a possible canon object.
-
-It is not final canon. It enters curator review, public gallery testing, and possible preservation.
+The artifact has enough integrity to be treated as a possible canon object. It is not final canon.
 
 ### REFINEMENT_REQUIRED
 
-The artifact contains meaningful signal but needs work.
-
-This route is the main engine of productive improvement.
+The artifact contains meaningful signal but needs compression, structure, examples, or schema expression.
 
 ### ARCHIVE_ONLY
 
 The artifact is preserved as reference material but not actively promoted.
 
-Archive is not punishment. It is memory without canon pressure.
-
 ### SLATRA_CONTAINMENT
 
-The artifact has high slop risk.
+The artifact has high repository-degradation risk. It may be retained as an anti-example, but should not become a reward surface.
 
-It may be retained as an anti-example, but should not become a reward surface.
+## Required Review Output
+
+Every judged artifact must produce:
+
+```json
+{
+  "positiveScore": 0,
+  "slopRisk": 0,
+  "finalScore": 0,
+  "route": "ARCHIVE_ONLY",
+  "vetoes": [],
+  "reason": "",
+  "next_action": ""
+}
+```
 
 ## Council Doctrine
-
-The system must optimize for refined preservation, not attention capture.
 
 AETIMM is the museum.
 
 SLATRA is the trough.
 
 The route engine is the door.
+
+The repository must optimize for refined preservation, not attention capture.
