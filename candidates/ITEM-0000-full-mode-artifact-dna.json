@@ -1,0 +1,42 @@
+{
+  "artifact_id": "ITEM-0000",
+  "name": "Full Mode Artifact DNA",
+  "version": "0.1.0",
+  "status": "candidate",
+  "summary": "A seed record defining what a full-mode ITEM artifact must contain before promotion into canon.",
+  "canon_pressure": {
+    "durability": "Must preserve meaning after repeated model sessions, style shifts, and implementation contexts.",
+    "specificity": "Must contain enough structure to become a file, image, object, schema, market asset, simulation, or physical specification.",
+    "anti_entropy": "Must compress conceptual sprawl into stable fields that can be reviewed, versioned, and reused.",
+    "execution_bridge": "Must be routable into ABYS as a task packet and into SYNTEL as a protocol message when inter-agent coordination is needed."
+  },
+  "required_layers": [
+    "identity",
+    "objective",
+    "symbolic_logic",
+    "implementation_surface",
+    "review_rubric",
+    "deprecation_rule",
+    "routing_rule"
+  ],
+  "promotion_criteria": [
+    "Has a stable artifact id and name.",
+    "States what is preserved and why it matters.",
+    "Defines at least one executable or manufacturable surface.",
+    "Can be validated against a schema.",
+    "Can generate a concrete ABYS task packet.",
+    "Can survive reduction to concise documentation without losing its core identity."
+  ],
+  "rejection_criteria": [
+    "Pure vibe without implementable surface.",
+    "Duplicate of existing canon without new structure.",
+    "Overloaded mythology with no validation path.",
+    "Cannot be routed to ITEM, ABYS, or SYNTEL without ambiguity."
+  ],
+  "routing": {
+    "ITEM": "Preserve this record as an artifact candidate and refine toward canon.",
+    "ABYS": "Convert promotion criteria into task packets, tests, and workflow automation.",
+    "SYNTEL": "Represent artifact promotion, review, and receipt events as signed agent messages when needed."
+  },
+  "next_recursive_improvement": "Create a validator that checks ITEM candidates for required fields and emits an ABYS task packet when promotion criteria are incomplete."
+}
