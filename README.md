@@ -76,7 +76,7 @@ Grand language does not increase score. A file earns repository gravity only thr
 
 ## Authoritative controls
 
-- Judgment: `docs/canon/judgment-standard.md`
+- Judgment: `docs/judgment-standard.md`
 - Routing: `ROUTING.md`
 - Governance: `GOVERNANCE.md`
 - Vocabulary: `docs/canon/item-controlled-vocabulary.md`
