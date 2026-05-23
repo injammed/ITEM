@@ -1,0 +1,90 @@
+{
+  "item_id": "ITEM-0001",
+  "canonical_name": "ACCRE/VMS Currency Ontology",
+  "status": "candidate",
+  "canonical_status_reason": "This record formalizes ACCRE and the VMS triad as a schema-valid ITEM economic ontology candidate rather than a financial instrument or token launch.",
+  "route": "ITEM",
+  "slop_risk": "low",
+  "object_type": "economic_unit",
+  "function": [
+    "Define the core ITEM currency ontology",
+    "Separate symbolic denomination grammar from market-facing financial claims",
+    "Provide a reproducible record for future currency artifacts",
+    "Anchor ACCRE and VMS inside machine-readable canon review"
+  ],
+  "artifact_layers": {
+    "DOCTRINAL_LAYER": {
+      "description": "Defines ACCRE as the interpreter of value relations and ITEM as the canon system that mints artifact status."
+    },
+    "DENOMINATION_LAYER": {
+      "description": "Defines the VMS triad: Vacuo as scarcity-to-memory, Mute as memory-to-exchange, and Singulus as exchange-to-fixed-scarcity."
+    },
+    "GOVERNANCE_LAYER": {
+      "description": "Requires future currency candidates to identify unit family, issuance logic, substrate, visual grammar, provenance, and veto risks."
+    },
+    "IMPLEMENTATION_LAYER": {
+      "description": "Can be rendered into schemas, fixture data, artifact viewers, interface labels, and candidate economic-unit records."
+    }
+  },
+  "symbolic_claims": [
+    "ACCRE interprets value; ITEM mints artifact status.",
+    "Vacuo, Mute, and Singulus are denomination grammar, not automatic money claims.",
+    "Canonization produces symbolic scarcity only after structured judgment.",
+    "Economic mythology must be separated from financial promises until implementation and legal review exist."
+  ],
+  "implementation_surface": {
+    "renderable": true,
+    "fabricable": false,
+    "simulatable": true,
+    "sellable": false,
+    "notes": "The ontology can drive UI, schemas, simulations, and visual families, but this record does not authorize sale, token issuance, or investment framing."
+  },
+  "validation_requirements": [
+    "Validate against schemas/item-record.schema.json",
+    "Cross-link to candidates/refined/accre-item-currency-ontology.md",
+    "Future denomination records must specify family_class, denomination_relation, issuance_logic, substrate, visual_grammar, anti_entropy_claim, provenance, and veto_risks",
+    "Do not imply investment value, legal tender status, or token launch without separate legal and implementation review"
+  ],
+  "provenance": {
+    "source": "ITEM repository normalization pass and prior ACCRE/VMS candidate doctrine",
+    "created_by": "ITEM Research Council / GPT-assisted repo operation",
+    "created_at": "2026-05-23",
+    "related_records": [
+      "ACCRE",
+      "VMS",
+      "Vacuo",
+      "Mute",
+      "Singulus"
+    ],
+    "source_files": [
+      "candidates/refined/accre-item-currency-ontology.md",
+      "docs/judgment-standard.md",
+      "schemas/item-record.schema.json"
+    ]
+  },
+  "judgment_result": {
+    "positiveScore": 54,
+    "slopRisk": 2,
+    "finalScore": 52,
+    "route": "AETIMM_CANDIDATE",
+    "vetoes": [],
+    "reason": "Strong coherence, provenance, and implementation surface as an ontology record. It is not canon-ready until examples and render templates exist.",
+    "next_action": "Create denomination-specific child records for Vacuo, Mute, and Singulus and add fixture validation."
+  },
+  "lineage": [
+    "ACCRE handshake doctrine",
+    "ACCRE-ITEM currency ontology candidate",
+    "ITEM canon foundry normalization"
+  ],
+  "permissions": {
+    "public_display_allowed": true,
+    "ai_transformation_allowed": true,
+    "canon_review_allowed": true,
+    "training_or_evaluation_allowed": false
+  },
+  "review_notes": {
+    "classification": "preserve",
+    "reason": "This is the first schema-valid economic-unit record connecting ACCRE and VMS to repository governance.",
+    "next_action": "Keep as candidate under canon/records until scoring, examples, and validation tooling mature."
+  }
+}
