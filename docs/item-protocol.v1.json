@@ -1,0 +1,67 @@
+{
+  "item_protocol": {
+    "version": "1.0.0",
+    "status": "active",
+    "last_updated": "2026-05-25",
+    "purpose": "Authoritative machine-readable specification for the ITEM artifact canon system. Defines structure, judgment, routing, and governance for durable symbolic objects and anti-entropic records.",
+    "repo_structure": {
+      "required_top_level": [
+        "docs/",
+        "schemas/",
+        "packages/core/",
+        "candidates/",
+        "canon/",
+        "deprecated/"
+      ],
+      "forbidden_at_root": [
+        ".gitkeep",
+        "ROUTING.md"
+      ],
+      "routing_policy_location": "docs/ROUTING.md",
+      "judgment_location": "packages/core/judgment.ts + docs/judgment-standard.md",
+      "schema_location": "schemas/",
+      "notes": "candidates/ holds draft artifacts. canon/ holds only records that have passed judgment v1. deprecated/ holds superseded material for provenance only."
+    },
+    "judgment_standard": {
+      "version": "1.0",
+      "dimensions": [
+        { "name": "coherence", "scale": "0-10" },
+        { "name": "originality", "scale": "0-10" },
+        { "name": "modal_depth", "scale": "0-10" },
+        { "name": "cultural_weight", "scale": "0-10" },
+        { "name": "craft_integrity", "scale": "0-10" },
+        { "name": "slop_risk", "scale": "0-10", "direction": "negative" }
+      ],
+      "positive_score": "coherence + originality + modal_depth + cultural_weight + craft_integrity (max 50)",
+      "routing_thresholds": {
+        "slop_risk_gte_8": "SLATRA_CONTAINMENT",
+        "positive_score_gte_40_and_slop_risk_lte_3": "AETIMM_CANDIDATE",
+        "positive_score_gte_25": "REFINEMENT_REQUIRED",
+        "default": "ARCHIVE_ONLY"
+      },
+      "mandatory_review_questions": 5,
+      "schema_enforcement": "Every judged artifact must produce review_notes with classification, reason, and next_action. Must conform to schemas/item-record.schema.json"
+    },
+    "routing_rules": {
+      "ITEM": "Symbolic continuity, doctrine, schemas, provenance, economic framing, artifact records, judgment logic, canon selection.",
+      "ABYS": "Deployable product infrastructure, execution engines, Codex workflows, agent orchestration, simulation dashboards, creator tools.",
+      "SYNTEL": "Agent-to-agent and machine-to-machine protocol infrastructure.",
+      "conflict_resolution": "Symbolic + doctrine -> ITEM. Executable + orchestration -> ABYS. Cross-link instead of duplicate."
+    },
+    "release_and_versioning": {
+      "policy": "Semantic Versioning. packages/core must have tagged releases. Main branch requires branch protection + status checks before merge.",
+      "minimum_requirements_for_v1_release": [
+        "Tagged release of packages/core with tests",
+        "CI that validates all schemas on push",
+        "Branch protection on main",
+        "No .gitkeep or root-level policy files outside docs/",
+        "At least one canonical ITEM record in /canon that passes judgment v1"
+      ]
+    },
+    "validation_requirements": {
+      "schema_validation": "All item records must validate against schemas/item-record.schema.json and schemas/item-artifact.schema.json",
+      "judgment_enforcement": "No artifact may move to canon/ without recorded judgment scores and review_notes",
+      "agent_consumption": "This JSON specification is the single source of truth for any m2m or a2a system interacting with ITEM"
+    }
+  }
+}
