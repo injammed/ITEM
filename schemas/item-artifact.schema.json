@@ -1,69 +1,139 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/injammed/ITEM/schemas/item-artifact.schema.json",
-  "title": "ITEM Artifact",
+  "title": "ITEM Artifact Record",
+  "description": "Canonical record shape for durable ITEM artifacts. ITEM defines the object and preservation logic; ABYS may build from it; SYNTEL may transmit it as payload data.",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "id",
-    "name",
     "status",
+    "name",
+    "class",
     "summary",
-    "entropy_thesis",
-    "forms",
-    "canon_score",
-    "routing"
+    "preservation_function",
+    "anti_entropy_mechanism",
+    "provenance",
+    "handoffs",
+    "canon_score"
   ],
   "properties": {
-    "id": { "type": "string", "pattern": "^ITEM-[0-9A-Z_-]+$" },
-    "name": { "type": "string", "minLength": 1 },
+    "id": {
+      "type": "string",
+      "pattern": "^ITEM-[0-9]{4,}$",
+      "description": "Stable ITEM identifier. Do not reuse IDs after deprecation."
+    },
     "status": {
       "type": "string",
-      "enum": ["canon", "candidate", "refinement_required", "deprecated", "deleted"]
+      "enum": ["candidate", "canon", "deprecated"]
     },
-    "summary": { "type": "string", "minLength": 1 },
-    "entropy_thesis": {
+    "name": {
       "type": "string",
-      "description": "Why this artifact preserves, resists decay, or converts momentary expression into durable form."
+      "minLength": 1
     },
-    "forms": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "string",
-        "enum": ["physical", "digital", "visual", "economic", "narrative", "interface", "protocol_adjacent"]
-      }
+    "class": {
+      "type": "string",
+      "enum": [
+        "physical_object",
+        "digital_object",
+        "denomination",
+        "museum_room",
+        "image_grammar",
+        "narrative_asset",
+        "schema",
+        "doctrine"
+      ]
     },
-    "implementation_paths": {
-      "type": "array",
-      "items": { "type": "string" }
+    "summary": {
+      "type": "string",
+      "minLength": 1
     },
-    "canon_score": {
+    "preservation_function": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What this artifact preserves that time, entropy, forgetfulness, market noise, or model drift would otherwise dissolve."
+    },
+    "anti_entropy_mechanism": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["durability", "specificity", "implementation_value", "coherence"],
+      "required": ["decay_threat", "maintenance_rule", "review_cadence"],
       "properties": {
-        "durability": { "type": "integer", "minimum": 0, "maximum": 3 },
-        "specificity": { "type": "integer", "minimum": 0, "maximum": 3 },
-        "implementation_value": { "type": "integer", "minimum": 0, "maximum": 3 },
-        "coherence": { "type": "integer", "minimum": 0, "maximum": 3 }
-      }
-    },
-    "routing": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["primary_repo", "secondary_repos"],
-      "properties": {
-        "primary_repo": { "type": "string", "enum": ["ITEM", "ABYS", "SYNTEL"] },
-        "secondary_repos": {
-          "type": "array",
-          "items": { "type": "string", "enum": ["ITEM", "ABYS", "SYNTEL"] }
-        }
+        "decay_threat": { "type": "string", "minLength": 1 },
+        "maintenance_rule": { "type": "string", "minLength": 1 },
+        "review_cadence": { "type": "string", "minLength": 1 }
       }
     },
     "provenance": {
       "type": "object",
-      "additionalProperties": true
+      "additionalProperties": false,
+      "required": ["source", "version", "custody_path"],
+      "properties": {
+        "source": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 },
+        "custody_path": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "replaces": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "handoffs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["abys", "syntel"],
+      "properties": {
+        "abys": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["buildable_outputs"],
+          "properties": {
+            "buildable_outputs": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            },
+            "acceptance_hint": { "type": "string" }
+          }
+        },
+        "syntel": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["transmittable_payloads"],
+          "properties": {
+            "transmittable_payloads": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            },
+            "identity_or_receipt_hint": { "type": "string" }
+          }
+        }
+      }
+    },
+    "canon_score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_definition",
+        "preservation_function",
+        "anti_entropy_logic",
+        "canon_utility",
+        "boundary_clarity",
+        "provenance"
+      ],
+      "properties": {
+        "artifact_definition": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "preservation_function": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "anti_entropy_logic": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "canon_utility": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "boundary_clarity": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "provenance": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "total": { "type": "integer", "minimum": 0, "maximum": 12 }
+      }
     }
   }
 }
