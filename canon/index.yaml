@@ -1,0 +1,55 @@
+# ITEM Canon Registry
+#
+# Purpose:
+# A stable index of accepted ITEM artifacts. This file is the canonical memory
+# surface for artifact IDs, names, classes, review status, and implementation links.
+#
+# Rule:
+# Nothing enters this registry unless it has a bounded artifact record, provenance,
+# review decision, and at least one materialization path.
+
+registry_version: 0.1.0
+repository: injammed/ITEM
+canon_rule: "Canon is what survives translation into bounded structure."
+
+status_definitions:
+  candidate: "Draft artifact awaiting review or missing required schema fields."
+  canonical: "Accepted artifact with bounded record, provenance, review, and materialization path."
+  quarantined: "High-energy concept preserved outside canon until boundaries improve."
+  deprecated: "Superseded or weak artifact retained for provenance."
+  rejected: "Concept reviewed and rejected as duplicate, non-materializable, or structurally weak."
+
+artifact_classes:
+  doctrine: "Durable ontology, preservation rule, or anti-entropy principle."
+  visual: "Renderable image, poster, symbol, scene, coin, note, or visual object."
+  physical: "Manufacturable object with materials, dimensions, tolerances, or fabrication path."
+  narrative: "Story object, character, setting, chapter seed, or mythic record."
+  economic: "Unit, denomination, ledger object, pricing artifact, or exchange record."
+  interface: "Museum, gallery, app, prompt environment, or viewer experience."
+  hybrid: "Artifact spanning multiple classes without losing object boundary."
+
+canon: []
+
+candidate_queue:
+  - proposed_id: ITEM-CAND-0001
+    name: "Sun as Self"
+    artifact_class: doctrine
+    status: candidate
+    reason_for_queue: "Strong ontology candidate; needs bounded record, provenance, and materialization path."
+    required_next_action: "Create /candidates/ITEM-CAND-0001-sun-as-self.yaml using artifact schema fields."
+  - proposed_id: ITEM-CAND-0002
+    name: "Mars Note"
+    artifact_class: economic
+    status: candidate
+    reason_for_queue: "Strong artifact candidate; needs physical/visual specification and economic role definition."
+    required_next_action: "Create /candidates/ITEM-CAND-0002-mars-note.yaml with render/manufacture/display paths."
+  - proposed_id: ITEM-CAND-0003
+    name: "ITEM vs TIME"
+    artifact_class: doctrine
+    status: candidate
+    reason_for_queue: "Core ontology candidate; should become a concise doctrine artifact rather than repeated prose."
+    required_next_action: "Create bounded doctrine record and link dependent artifacts to it."
+
+quarantine: []
+deprecated: []
+rejected: []
