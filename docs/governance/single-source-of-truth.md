@@ -1,4 +1,4 @@
-# ITEM Single Source of Truth
+# ITEM Single Source Of Truth
 
 This map resolves doctrine conflicts.
 
@@ -6,12 +6,15 @@ This map resolves doctrine conflicts.
 |---|---|
 | What is ITEM? | `README.md` |
 | Which repo owns the work? | `ROUTING.md` |
-| How does an artifact move through the lifecycle? | `GOVERNANCE.md` |
+| How does material move through the lifecycle? | `GOVERNANCE.md` |
 | How is an artifact judged? | `docs/judgment-standard.md` |
 | Which terms are controlled? | `docs/canon/item-controlled-vocabulary.md` |
-| What must a canonical record contain? | `schemas/item-record.schema.json` |
+| What artifact classes are recognized? | `docs/artifact-classes/` |
+| What must an ITEM record contain? | `schemas/item-record.schema.json` |
+| What must contribution intake contain? | `schemas/contribution.schema.json` |
+| Where do deprecated prior doctrines live? | `archive/deprecated/` |
 
-## Conflict rule
+## Conflict Rule
 
 Prefer the most specific authority.
 
