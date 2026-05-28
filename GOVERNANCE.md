@@ -1,28 +1,51 @@
 # ITEM Governance
 
-ITEM governance controls the artifact lifecycle. It does not replace schema validation, routing policy, or judgment scoring.
+ITEM governance converts symbolic material into durable artifact infrastructure. It controls lifecycle, not execution.
 
 ## Lifecycle
 
 ```txt
-signal -> candidate -> judgment -> route -> canon | refinement | archive | containment
+submission -> candidate -> refinement -> judgment -> canon review -> canon | archive | containment
 ```
 
-## Route authorities
+## Authorities
 
-- Canon records must satisfy `schemas/item-record.schema.json`.
+- Intake must satisfy `schemas/contribution.schema.json` before it is treated as reviewable material.
+- Canon or canon-review records must satisfy `schemas/item-record.schema.json`.
 - Judgment decisions must use `docs/judgment-standard.md`.
 - Repository ownership must follow `ROUTING.md`.
 - Authority conflicts resolve through `docs/governance/single-source-of-truth.md`.
 
-## Canon rule
+## Submission
 
-No artifact becomes canon by upload, intensity, novelty, or aesthetic force alone.
+New material enters as a contribution, not as canon.
 
-An artifact becomes canon only after it is bounded, sourced, judged, schema-compatible, and useful as a durable ITEM record.
+A contribution must identify source, contributor handle, material type, permissions, intended route, visibility, provenance claim, and public description.
 
-## Compression rule
+## Candidate Routing
 
-AETIMM is compression, not accumulation.
+A contribution may become an ITEM candidate only when it can name an artifact form. Accepted forms include physical object, digital object, image specification, narrative asset, economic unit, schema, hybrid artifact, and machine-native symbolic system.
 
-Governance should reduce doctrine surface area while increasing artifact clarity.
+## Refinement
+
+Refinement compresses promising material into reproducible structure. It must improve schema validity, provenance clarity, implementation surface, symbolic coherence, visual/object specificity, or routing clarity.
+
+## Judgment
+
+Judgment is controlled by `docs/judgment-standard.md` and must emit the required JSON judgment object. No artifact becomes canon by upload, intensity, novelty, or aesthetic force alone.
+
+## Canon Review
+
+A record may enter canon review only when it is valid against `schemas/item-record.schema.json` and includes provenance, status reason, route, slop risk, judgment result, and next action.
+
+## Deprecation And Containment
+
+Deprecated material is retained only for provenance under `archive/deprecated/` or with an explicit deprecation header. High-risk low-signal material routes to containment rather than canon pressure.
+
+## Boundary
+
+ITEM defines artifacts. It does not own execution engines, orchestration stacks, protocol rails, product runtimes, deployment plans, or autonomous workflow control.
+
+## Compression Rule
+
+AETIMM is compression, not accumulation. Governance should reduce doctrine surface area while increasing artifact clarity.
