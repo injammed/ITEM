@@ -2,15 +2,16 @@
   "item_id": "ITEM-AUTHALIEN-PRIMAL-GLYPH-SET",
   "canonical_name": "Authalien Primal Glyph Set",
   "status": "candidate",
-  "canonical_status_reason": "This is a bounded candidate artifact for judging Authalien glyph language as a machine-native symbolic system, not active canon or protocol runtime.",
+  "canonical_status_reason": "This is a bounded candidate artifact for judging Authalien glyph language as a machine-native symbolic system for future A2A/M2M payload use, not active canon or protocol runtime.",
   "route": "ITEM",
   "slop_risk": "medium",
   "object_type": "machine_native_symbolic_system",
   "function": [
     "Bound Authalien decorative language as a candidate artifact",
     "Define a future glyph inventory and grammar review target",
-    "Prevent premature canon, protocol, or runtime claims",
-    "Give ABYS a possible future validator task only after ITEM judgment"
+    "Prepare Authalien for signed A2A/M2M payload references after validation",
+    "Prevent premature canon, protocol, runtime, legal, or settlement claims",
+    "Give ABYS a validator task and SYNTEL a payload-only reference path"
   ],
   "artifact_layers": {
     "GLYPH_LAYER": {
@@ -22,6 +23,9 @@
     "MACHINE_LAYER": {
       "description": "A machine-readable representation suitable for validation once the glyph inventory is defined."
     },
+    "A2A_M2M_LAYER": {
+      "description": "A future signed-envelope payload reference for agent-to-agent and machine-to-machine coordination, never autonomous execution by default."
+    },
     "BOUNDARY_LAYER": {
       "description": "Explicitly blocks protocol-runtime, autonomous-agent, legal, financial, or irreversible-settlement claims."
     }
@@ -29,29 +33,33 @@
   "symbolic_claims": [
     "Authalien glyphs may become a symbolic artifact class only after bounded inventory and judgment.",
     "A glyph set is not a protocol, runtime, currency, agent identity, or legal contract.",
-    "Machine-native symbolic value depends on parseability, provenance, and controlled transformation rules."
+    "Machine-native symbolic value depends on parseability, provenance, and controlled transformation rules.",
+    "A2A/M2M use must carry validated Authalien only as signed, auditable, replayable payload data."
   ],
   "implementation_surface": {
     "renderable": true,
     "fabricable": false,
     "simulatable": true,
     "sellable": false,
-    "notes": "This candidate can become an image grammar, schema fixture, or validation dataset after the glyph inventory is specified. It is not authorized for product runtime or protocol use."
+    "notes": "This candidate can become an image grammar, schema fixture, validation dataset, or signed A2A/M2M payload reference after the glyph inventory is specified. It is not authorized for product runtime or protocol execution."
   },
   "validation_requirements": [
     "Validate against schemas/item-record.schema.json",
     "Define an explicit glyph inventory before canon review",
     "Add examples for valid and invalid glyph transformations",
     "Score with docs/judgment-standard.md",
-    "Defer any SYNTEL extension until ITEM accepts a candidate record and ABYS has a validator task"
+    "Reference ABYS validator task examples/task-packets/authalien-validator-task.json before SYNTEL payload use",
+    "Allow SYNTEL only to carry signed, auditable, replayable Authalien payload references"
   ],
   "provenance": {
-    "source": "Execution-order task packet requesting Authalien as candidate-only ITEM material",
+    "source": "Execution-order task packet requesting Authalien as candidate-only ITEM material, then clarified for A2A/M2M use",
     "created_by": "Codex repo operation",
     "created_at": "2026-05-28",
     "related_records": [
       "Authalien",
-      "machine-native symbolic systems"
+      "machine-native symbolic systems",
+      "A2A",
+      "M2M"
     ],
     "source_files": [
       "docs/artifact-classes/machine-native-symbolic-systems.md",
@@ -65,13 +73,14 @@
     "finalScore": 37,
     "route": "REFINEMENT_REQUIRED",
     "vetoes": [],
-    "reason": "The candidate has a useful artifact-class container but lacks a complete glyph inventory, examples, and transformation grammar.",
+    "reason": "The candidate has a useful artifact-class and A2A/M2M payload container but lacks a complete glyph inventory, examples, and transformation grammar.",
     "next_action": "Define the first glyph inventory and add valid/invalid fixture examples before reconsidering canon readiness."
   },
   "lineage": [
     "Authalien decorative language",
     "Machine-native symbolic systems artifact class",
-    "ITEM candidate routing"
+    "ITEM candidate routing",
+    "SYNTEL signed A2A/M2M payload reference"
   ],
   "permissions": {
     "public_display_allowed": true,
@@ -81,7 +90,7 @@
   },
   "review_notes": {
     "classification": "refine",
-    "reason": "Candidate status preserves the signal without promoting undefined decorative language into canon.",
+    "reason": "Candidate status preserves the A2A/M2M signal without promoting undefined decorative language into canon or runtime.",
     "next_action": "Keep under candidates until a bounded symbol inventory and examples exist."
   }
 }
