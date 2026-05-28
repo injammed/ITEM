@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/injammed/ITEM/schemas/contribution.schema.json",
+  "title": "ITEM Contribution Intake",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contribution_id",
+    "contributor",
+    "submitted_at",
+    "material_type",
+    "source_files",
+    "permissions",
+    "provenance_claim",
+    "intended_route",
+    "visibility",
+    "public_description"
+  ],
+  "properties": {
+    "contribution_id": { "type": "string", "pattern": "^CONTRIB-[0-9A-Z_-]+$" },
+    "contributor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name_or_handle"],
+      "properties": {
+        "name_or_handle": { "type": "string", "minLength": 1 },
+        "contact_optional": { "type": "string" }
+      }
+    },
+    "submitted_at": { "type": "string" },
+    "material_type": {
+      "type": "string",
+      "enum": ["text", "image", "audio", "video", "code", "schema", "object_spec", "mixed"]
+    },
+    "source_files": { "type": "array", "items": { "type": "string" } },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ai_transformation_allowed",
+        "canon_review_allowed",
+        "public_display_allowed",
+        "training_or_evaluation_allowed"
+      ],
+      "properties": {
+        "ai_transformation_allowed": { "type": "boolean" },
+        "canon_review_allowed": { "type": "boolean" },
+        "public_display_allowed": { "type": "boolean" },
+        "training_or_evaluation_allowed": { "type": "boolean" }
+      }
+    },
+    "provenance_claim": { "type": "string", "minLength": 1 },
+    "intended_route": { "type": "string", "enum": ["ITEM", "ABYS", "SYNTEL", "UNKNOWN"] },
+    "visibility": { "type": "string", "enum": ["private_intake", "review_only", "public_candidate", "public_canon"] },
+    "private_notes": { "type": "string" },
+    "public_description": { "type": "string", "minLength": 1 },
+    "requested_artifact_type": {
+      "type": "string",
+      "enum": [
+        "physical_object",
+        "digital_object",
+        "image_spec",
+        "narrative_asset",
+        "economic_unit",
+        "schema",
+        "hybrid_artifact",
+        "machine_native_symbolic_system",
+        "unknown"
+      ]
+    }
+  }
+}
