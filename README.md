@@ -8,6 +8,7 @@ ITEM is artifact canon only. It is not an execution engine, orchestration stack,
 
 ## Start here
 
+- `AETIMM-GENESIS.md` - sealed v0.1 Genesis horizon and doctrine freeze
 - `GOVERNANCE.md` - artifact lifecycle and route decisions
 - `ROUTING.md` - repo ownership and boundary rules
 - `docs/judgment-standard.md` - canonical judgment output
